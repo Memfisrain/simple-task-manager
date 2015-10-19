@@ -1,0 +1,105 @@
+* {
+			box-sizing: border-box;
+}
+
+body {
+	padding: 15px;
+}
+
+#task-form {
+	float: left;
+	padding: 15px 25px 25px 25px;
+	border: 1px solid #ccc;
+	font: 12pt sans-serif;
+}
+
+.form-title {
+	margin: 0 auto;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.field {
+	clear: both;
+	text-align: right;
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+
+.field label {
+	float: left;
+}
+
+.task-add {
+	background-color: #1F9DFF;
+	padding: 7px 10px;
+	color: #FFF;
+	font-weight: bold;
+	border: none;
+	transition: box-shadow .2s ease-in;
+}
+
+.task-add:hover {
+	cursor: pointer;
+	box-shadow: -1px 1px 3px #17364F;
+}
+
+#task-title,
+#task-description,
+#task-time,
+#task-date {
+	margin-left: 15px;
+	width: 180px;
+	height: 25px;
+}
+
+#task-description {
+	height: 45px;
+}
+#todo-list {
+	margin-top: 0;
+	float: right;
+	list-style: none;
+}
+
+#todo-list li {
+	padding: 7px;
+	margin-top: 5px;
+	border: 1px solid black;
+	line-height: 23px;
+}
+
+#todo-list li:first-child {
+	margin-top: 0;
+}
+
+.todo-list-remove {
+	background-color: transparent;
+	border: none;
+	width: 23px;
+	height: 23px;
+	border-radius: 50%;
+	color: #ccc;
+	transition: color .2s;
+	font-size: 18px;
+}
+
+.todo-list-remove:hover {
+	color: black;
+	cursor: pointer;
+}
+
+.my-tooltip {
+	background-color: #eee;
+	padding: 5px;
+	position: absolute;
+	z-index: 999;
+}
+
+.control {
+	float: right;
+}
+
+.todo-list-time-remaining, .todo-list-title, .todo-list-description, .todo-list-add-time {
+	margin-right: 20px;
+}

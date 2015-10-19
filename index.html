@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>My todo list</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="MyCtrl">
+<form id="task-form" ng-submit="addTask()">
+	<h2 class="form-title">Добавьте напоминание</h2>
+	<div class="field">
+		<label for="task-title">Заголовок *</label>
+		<input id="task-title" ng-model="title" type="text" maxlength=20 required>
+	</div>
+	<div class="field">
+		<label for="task-description">Описание</label>
+		<textarea id="task-description" ng-model="description"></textarea>
+	</div>
+	<div class="field">
+		<label for="task-date">Дата окончания *</label>
+		<input id="task-date" ng-model="date" type="date" required>
+	</div>
+	<div class="field">
+		<label for="task-time">Время окончания *</label>
+		<input id="task-time" ng-model="time" type="time" required>
+	</div>
+	<div class="task-button-container">
+		<input class="task-add" type="submit" value="Добавить">
+	</div>
+</form>
+<ul id="todo-list">
+	<li ng-repeat="task in tasks track by task.id | orderBy: '-timeRemaining'" ng-class="{warning: task.expired}">
+		<span class="todo-list-time-remaining">{{task.remaining | dateConverter}}</span>
+		<span class="todo-list-title">{{task.title}}</span>
+		<div class="control">
+			<span class="todo-list-description" tooltip-text="{{task.description}}" my-tooltip>подробнее</span>
+			<button class="todo-list-add-time" ng-click="addTimeToTask(task)">+10 мин</button>
+			<button class="todo-list-remove" ng-click="removeTask(task)">x</button>
+		</div>
+	</li>
+</ul>
+<script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-route.min.js"></script>
+<script src="directives.js"></script>
+<script src="services.js"></script>
+<script src="controllers.js"></script>
+<script src="filters.js"></script> 
+<script src="app.js"></script>
+</body>
+</html>
